@@ -27,7 +27,7 @@ MERN stack backend for the Reinsure Services insurance website.
 3. Get connection string
 4. Update `.env` file with your connection string:
    ```
-   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/reinsure
+   MONGODB_URI=mongodb+srv://YOUR_USERNAME:YOUR_PASSWORD@YOUR_CLUSTER.mongodb.net/reinsure
    ```
 
 ## Installation
