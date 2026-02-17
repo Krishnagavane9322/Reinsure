@@ -21,9 +21,27 @@ dotenv.config();
 // Create Express app
 const app: Application = express();
 
+// CORS configuration - allow multiple origins
+const allowedOrigins = [
+  'http://localhost:8080',
+  'https://apex-insure.vercel.app',
+  'https://www.reinsureinsurance.in',
+  'https://reinsureinsurance.in',
+  process.env.CORS_ORIGIN
+].filter(Boolean);
+
 // Middleware
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:8080',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 app.use(express.json());
