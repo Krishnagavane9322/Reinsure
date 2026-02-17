@@ -13,6 +13,7 @@ import faqsRoutes from './routes/faqs.routes';
 import leadsRoutes from './routes/leads.routes';
 import adminRoutes from './routes/admin.routes';
 import analyticsRoutes from './routes/analytics.routes';
+import setupRoutes from './routes/setup.routes';
 
 // Load environment variables
 dotenv.config();
@@ -39,6 +40,8 @@ app.use('/api/faqs', faqsRoutes);
 app.use('/api/leads', leadsRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/setup', setupRoutes); // One-time setup route
+
 
 // Health check route
 app.get('/api/health', (req, res) => {
